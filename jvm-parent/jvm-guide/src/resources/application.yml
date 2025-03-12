@@ -1,0 +1,14 @@
+server:
+  port: 8010
+  servlet:
+    context-path: /jvm-guide
+  tomcat:
+    max-threads: 10
+
+logging:
+  level:
+    com.systeminfos: debug
+
+    
+
+

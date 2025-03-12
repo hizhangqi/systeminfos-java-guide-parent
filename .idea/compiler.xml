@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sharding-sphere4" />
+        <module name="sharding-sphere5" />
+        <module name="spring-life-cycle" />
+        <module name="jvm-guide" />
+        <module name="sharding-jdbc3.1" />
+        <module name="mqtt-huaweicloud" />
+        <module name="springboot3demo" />
+        <module name="spring-transaction" />
+        <module name="sharding-jdbc3" />
+        <module name="spring-cycle-depend" />
+        <module name="spring-aop" />
+        <module name="flink-parent" />
+        <module name="mina" />
+        <module name="common-mybatisplus-generator" />
+        <module name="hadoop-demo" />
+        <module name="netty" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springboot3demo" options="--enable-preview" />
+    </option>
+  </component>
+</project>

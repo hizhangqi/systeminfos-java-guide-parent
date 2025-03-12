@@ -1,0 +1,14 @@
+SUBCOMMAND may print help when invoked w/o parameters or with -h.
+[root@bigdata01 test]# hadoop version
+Hadoop 3.4.0
+Source code repository git@github.com:apache/hadoop.git -r bd8b77f398f626bb7791783192ee7a5dfaeec760
+Compiled by root on 2024-03-04T06:35Z
+Compiled on platform linux-x86_64
+Compiled with protoc 3.21.12
+From source with checksum f7fe694a3613358b38812ae9c31114e
+This command was run using /opt/hadoop/share/hadoop/common/hadoop-common-3.4.0.jar
+[root@bigdata01 test]#
+[root@bigdata01 test]#
+[root@bigdata01 test]# ls
+
+edip

@@ -1,0 +1,79 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /shardingJdbc4
+  tomcat:
+    max-threads: 10
+# standard 方式实现水平分表
+
+# 所有数据源列表
+spring:
+  shardingsphere:
+    datasource:
+      names: db-master,db-slaver1,db-slaver2
+      db-master: # 配置主库
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/shardingjdbc_0?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        username: root
+        password: mysqlmysql
+        maxPoolSize: 10 #最大连接数
+      db-slaver1: # 配置第一个从库
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/shardingjdbc_1?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        username: root
+        password: mysqlmysql
+        maxPoolSize: 10
+      db-slaver2: # 配置第二个从库
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/shardingjdbc_2?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        username: root
+        password: mysqlmysql
+        maxPoolSize: 10
+      config:
+        shardingRule:
+          tables:
+            user_info:
+#              actualDataNodes: dbs.user_info_$->{0..1} #实际表名user_info_0, user_info_1
+#              actualDataNodes: db-master.user_info_${0..1}, db-slaver1.user_info_${0..1}, db-slaver2.user_info_${0..1}
+              databaseStrategy:
+                inline:
+                  shardingColumn: user_id
+#                  algorithmExpression: "db-${user_id % 3}"
+#                  algorithmExpression: "db-${user_id % 3 == 0 ? 'master' : (user_id % 3 == 1 ? 'slaver1' : 'slaver2')}"
+#                  algorithmExpression: "db-${user_id % 3 == 0 ? 'master' : 'slaver' + (user_id % 3)}"
+#                  algorithmExpression: "db-master,db-slaver1,db-slaver2[${user_id % 3}]"
+              tableStrategy:
+                inline:
+                  shardingColumn: user_id
+                  algorithmExpression: user_info_1
+          defaultDatabaseStrategy:
+            none:
+          defaultTableStrategy:
+            none:
+#          master-slave-rules: # 配置读写分离
+#            dbs:
+#              load-balance-algorithm-type: round_robin # 配置从库选择策略，提供轮询与随机，这里选择用轮询//random 随机 //round_robin 轮询
+#              master-data-source-name: db-master
+#              slave-data-source-names: db-slaver1,db-slaver2
+        props:
+          sql: true # 开启SQL显示，默认值: false，注意：仅配置读写分离时不会打印日志
+  main:
+    allowBeanDefinitionOverriding: true # 由于shading-jdbc也会创建bean=Datasource，必须开启覆盖
+# MyBatis配置
+mybatis:
+  type-aliases-package: com.systeminfos.shardingJdbc4.model
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    cache-enabled: false
+
+logging:
+  level:
+    com.systeminfos.shardingJdbc4: debug
+    io.shardingjdbc.core: debug
+
+    
+
+

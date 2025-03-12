@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/common-parent/common-mybatisplus-generator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common-parent/common-mybatisplus-generator/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data-parent/flink-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data-parent/flink-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data-parent/hadoop-demo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data-parent/hadoop-demo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-parent/mqtt-huaweicloud/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-parent/mqtt-huaweicloud/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/im-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jvm-parent/jvm-guide/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jvm-parent/jvm-guide/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jvm-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jvm-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nio-parent/mina/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nio-parent/mina/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nio-parent/netty/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nio-parent/netty/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nio-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nio-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sharding-jdbc-parent/sharding-jdbc3.1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sharding-jdbc-parent/sharding-jdbc3.1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sharding-jdbc-parent/sharding-jdbc3/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sharding-jdbc-parent/sharding-jdbc3/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sharding-jdbc-parent/sharding-sphere4/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sharding-jdbc-parent/sharding-sphere4/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sharding-jdbc-parent/sharding-sphere5/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sharding-jdbc-parent/sharding-sphere5/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sharding-jdbc-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sharding-jdbc-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/spring5-parent/spring-aop/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/spring5-parent/spring-aop/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/spring5-parent/spring-cycle-depend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/spring5-parent/spring-cycle-depend/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/spring5-parent/spring-life-cycle/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/spring5-parent/spring-life-cycle/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/spring5-parent/spring-transaction/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/spring5-parent/spring-transaction/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/spring5-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/spring5-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/springboot3demo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/springboot3demo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
