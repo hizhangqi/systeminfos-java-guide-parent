@@ -1,0 +1,72 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /shardingJdbc31
+  tomcat:
+    max-threads: 10
+# inline 方式实现水平分库分表 分库不行，但分表可以
+logging:
+  level:
+    com.systeminfos.shardingJdbc31: debug
+    io.shardingjdbc.core: debug
+
+# 所有数据源列表
+sharding:
+  jdbc:
+    dataSource:
+      names: db-master,db-slaver1,db-slaver2
+      db-master: # 配置主库
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/shardingjdbc_0?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        username: root
+        password: mysqlmysql
+        maxPoolSize: 10 #最大连接数
+      db-slaver1: # 配置第一个从库
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/shardingjdbc_1?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        username: root
+        password: mysqlmysql
+        maxPoolSize: 10
+      db-slaver2: # 配置第二个从库
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/shardingjdbc_2?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT
+        username: root
+        password: mysqlmysql
+        maxPoolSize: 10
+    config:
+      sharding:
+        tables: # 分表配置
+          user_info:
+            actual-data-nodes: dbs.user_info_$->{0..1} #实际表名user_info_0, user_info_1
+            database-strategy:
+              inline:
+                sharding-column: user_id # 根据id来区分(id值必须存在)
+                algorithm-expression: "${user_id % 3 == 0 ? 'db-master' : ${user_id % 3 == 1 ? 'db-slaver1' : ${'db-slaver2'}}}"
+            table-strategy: # 策略
+              inline:
+                sharding-column: user_id # 根据id来区分(id值必须存在)
+                algorithm-expression: user_info_${user_id.longValue() % 2} # 配置数据分表的策略的类
+        master-slave-rules: # 配置读写分离
+          dbs:
+            load-balance-algorithm-type: round_robin # 配置从库选择策略，提供轮询与随机，这里选择用轮询//random 随机 //round_robin 轮询
+            master-data-source-name: db-master
+            slave-data-source-names: db-slaver1,db-slaver2
+      props:
+        sql: true # 开启SQL显示，默认值: false，注意：仅配置读写分离时不会打印日志
+
+# MyBatis配置
+mybatis:
+  type-aliases-package: com.systeminfos.shardingJdbc31.model
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    cache-enabled: false
+
+spring:
+  main:
+    allow-bean-definition-overriding: true # 由于shading-jdbc也会创建bean=Datasource，必须开启覆盖
+    
+
+

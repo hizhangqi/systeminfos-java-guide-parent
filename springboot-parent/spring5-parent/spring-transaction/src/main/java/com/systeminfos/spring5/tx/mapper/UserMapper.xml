@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.systeminfos.spring5.tx.dao.UserDao">
+    <!-- 根据uid查询一个用户信息 -->
+    <select id="selectUserById" parameterType="Integer" resultType="com.systeminfos.spring5.tx.entity.MyUser">
+        select * from user where id = #{uid}
+    </select>
+    <!--修改一个用户 -->
+    <update id="updateUser" parameterType="com.systeminfos.spring5.tx.entity.MyUser">
+        update user set name =#{uname} where id = #{uid}
+    </update>
+</mapper>

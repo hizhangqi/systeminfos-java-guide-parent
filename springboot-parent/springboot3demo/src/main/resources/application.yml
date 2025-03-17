@@ -1,0 +1,72 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /springboot3demo
+
+spring:
+  redis:
+    cluster:
+      nodes: bigdata01:7001,bigdata01:7002,bigdata01:7003,bigdata01:7004,bigdata01:7005,bigdata01:7006
+      max-redirects: 6
+    sentinel:
+      master: mymaster
+      nodes: bigdata01:26379
+    single:
+      host: bigdata01
+      port: 6379
+    expire: 3600
+    max-active: 500
+    max-idle: 5000
+    max-wait: 10000
+    timeout: 60000
+    password: none
+    testOnBorrow: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test1?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: mysqlmysql
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 连接池最大使用连接数
+      max-active: 20
+      # 初始化连接大小
+      initial-size: 1
+      # 获取连接最大等待时间
+      max-wait: 60000
+      # 连接池最小空闲
+      min-idle: 3
+      # 自动清除无用连接
+      remove-abandoned: true
+      # 清除无用连接的等待时间
+      remove-abandoned-timeout: 180
+      # 连接属性
+      connection-properties: clientEncoding=UTF-8;druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+#MyBatis PageHelper 分页插件设置
+pagehelper:
+  #  取消指定数据库动态识别
+  autoRuntimeDialect: true
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.systeminfos.springboot3demo.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 开启字段名和属性名驼峰匹配
+    map-underscore-to-camel-case: true
+    # 全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载
+    lazy-loading-enabled: true
+    # 当启用时，有延迟加载属性的对象在被调用时将会完全加载任意属性。否则，每种属性将会按需要加载
+    aggressive-lazy-loading: true
+  global-config:
+    db-config:
+      id-type: AUTO  # 全局配置主键自动生成策略
+
+logging:
+  level:
+    com.baomidou.mybatisplus: DEBUG    # 打印 MyBatis-Plus 的 SQL 日志
+    org.apache.ibatis: DEBUG         # 打印 MyBatis 的 SQL 日志
+
+
+
